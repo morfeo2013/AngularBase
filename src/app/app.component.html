@@ -1,0 +1,66 @@
+<app-iniciologo></app-iniciologo>
+
+<div class="container mt-5">
+  <div class="row mt-5">
+    <div class="col mt-5"></div>
+  </div>
+  <div class="container text-center">
+  <!-- para agregar un usuario creamos un form de bootsrap -->
+  <form class="form-row">
+    <!-- creamos dos input para agregar los datos nombre apellido -->
+
+
+    <div class="input-group">
+      <span class="input-group-text">Ingrese Nombre y Apellido</span>
+      <input
+      type="text"
+      name="nombre"
+      id="nombre"
+      placeholder="Nombre"
+      class="form-control"
+      [(ngModel)]="nombreInput"
+    />
+      <input
+        type="text"
+        name="apellido"
+        id="apellido"
+        placeholder="Apellido"
+        class="form-control"
+        [(ngModel)]="apellidoInput"
+      />
+    </div>
+  </form>
+    <!-- creamos el boton  -->
+    <div class="col text-center">
+      <button type="submit" class="btn btn-success" (click)="agregarPersona()">
+        Crear nuevo Usuario +
+      </button>
+    </div>
+  
+
+  </div>
+  
+ 
+
+<!-- se crea la tabla para interactuar con los usuarios -->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let persona of personas; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ persona.nombre }}</td>
+      <td>{{ persona.apellido }}</td>
+
+      <td>
+        <button class="btn btn-primary" type="submit">Editar</button>
+        <button class="btn btn-danger" type="submit">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
